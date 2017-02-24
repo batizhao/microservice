@@ -13,6 +13,7 @@
 	<modules>
 		<module>discovery-eureka</module>
 		<module>flow-engine-server</module>
+		<module>oa-client</module>
 	</modules>
 
 	<parent>

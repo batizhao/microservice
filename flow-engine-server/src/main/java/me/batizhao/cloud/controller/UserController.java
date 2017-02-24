@@ -29,14 +29,16 @@ public class UserController {
     private DiscoveryClient discoveryClient;
 
     @PostMapping(value="/start-process", produces= MediaType.APPLICATION_JSON_VALUE)
-    public void startHireProcess(@RequestBody Map<String, String> data) {
+    public User startHireProcess(@RequestBody User data) {
 
-        User user = new User(data.get("name"), data.get("email"), data.get("phoneNumber"));
+        User user = new User(data.getName(), data.getEmail(), data.getPhoneNumber());
         userRepository.save(user);
 
         Map<String, Object> variables = new HashMap<String, Object>();
         variables.put("user", user);
         runtimeService.startProcessInstanceByKey("hireProcessWithJpa", variables);
+
+        return user;
     }
 
     /**
