@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/oa?useUnicode=true&useSSL=false
+    username: root
+    password: password
+
+  jpa:
+    show-sql: true
+    properties:
+      hibernate.hbm2ddl.auto: update
