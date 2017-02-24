@@ -12,7 +12,7 @@
     <artifactId>flow-engine-server</artifactId>
     <packaging>jar</packaging>
 
-    <name>flow-engine-server</name>
+    <name>Workflow Engine Server with Activiti</name>
     <description>流程引擎API服务平台</description>
 
     <dependencies>

@@ -12,7 +12,7 @@
     <artifactId>oa-client</artifactId>
     <packaging>jar</packaging>
 
-    <name>oa-client</name>
+    <name>OA Client</name>
     <description>流程引擎客户端</description>
 
     <dependencies>

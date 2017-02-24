@@ -12,7 +12,7 @@
     <artifactId>oa-client-with-hystrix</artifactId>
     <packaging>jar</packaging>
 
-    <name>oa-client-with-hystrix</name>
+    <name>OA Client with Hystrix</name>
     <description>流程引擎客户端，使用了熔断器</description>
 
     <dependencies>

@@ -1,0 +1,19 @@
+server:
+  port: 8050
+
+spring:
+  application:
+    name: api-gateway
+
+eureka:
+  instance:
+    hostname: gateway
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
+
+zuul:
+  routes:
+    user:                                   # 可以随便写，在zuul上面唯一即可；当这里的值 = service-id时，service-id可以不写。
+      path: /user/**                        # 想要映射到的路径
+      service-id: oa-client-with-hystrix    # Eureka中的serviceId
