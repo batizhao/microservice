@@ -9,7 +9,6 @@ spring:
     url: jdbc:mysql://localhost:3306/oa?useUnicode=true&useSSL=false
     username: root
     password: password
-
   jpa:
     show-sql: true
     properties:

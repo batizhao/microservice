@@ -13,6 +13,7 @@
     <packaging>jar</packaging>
 
     <name>discovery-eureka</name>
+    <description>服务发现注册中心</description>
 
     <dependencies>
         <dependency>

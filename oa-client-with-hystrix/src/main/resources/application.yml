@@ -1,0 +1,13 @@
+server:
+  port: 8011
+
+spring:
+  application:
+    name: oa-client-with-hystrix
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
+  instance:
+    hostname: ribbon
