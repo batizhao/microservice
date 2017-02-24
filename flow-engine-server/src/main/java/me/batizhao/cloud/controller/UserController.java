@@ -4,11 +4,10 @@ import me.batizhao.cloud.domain.User;
 import me.batizhao.cloud.repository.UserRepository;
 import org.activiti.engine.RuntimeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,7 +25,10 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @RequestMapping(value="/start-process", method= RequestMethod.POST, produces= MediaType.APPLICATION_JSON_VALUE)
+    @Autowired
+    private DiscoveryClient discoveryClient;
+
+    @PostMapping(value="/start-process", produces= MediaType.APPLICATION_JSON_VALUE)
     public void startHireProcess(@RequestBody Map<String, String> data) {
 
         User user = new User(data.get("name"), data.get("email"), data.get("phoneNumber"));
@@ -35,5 +37,15 @@ public class UserController {
         Map<String, Object> variables = new HashMap<String, Object>();
         variables.put("user", user);
         runtimeService.startProcessInstanceByKey("hireProcessWithJpa", variables);
+    }
+
+    /**
+     * 本地服务实例的信息
+     * @return
+     */
+    @GetMapping("/instance-info")
+    public ServiceInstance showInfo() {
+        ServiceInstance localServiceInstance = this.discoveryClient.getLocalServiceInstance();
+        return localServiceInstance;
     }
 }
