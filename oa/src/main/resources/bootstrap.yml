@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: oa
+  cloud:
+    config:
+#      uri: http://config-server:8040/
+      profile: dev
+      label: master
+      discovery:
+        enabled: true           # 默认false，设为true表示使用注册中心中的configserver配置而不自己配置configserver的uri
+        serviceId: configure    # 指定config server在服务发现中的serviceId，默认为：configserver
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
+#  instance:
+#    hostname: ribbon

@@ -11,18 +11,17 @@
 	<name>Micro Service Example</name>
 
 	<modules>
-		<module>discovery-eureka</module>
-		<module>flow-engine-server</module>
-		<module>oa-client</module>
-        <module>oa-client-with-hystrix</module>
-        <module>config-server</module>
-        <module>api-gateway</module>
+		<module>configure</module>
+		<module>discovery</module>
+		<module>engine</module>
+		<module>gateway</module>
+        <module>oa</module>
     </modules>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.1.RELEASE</version>
+		<version>1.5.2.RELEASE</version>
 	</parent>
 
 	<properties>
@@ -31,6 +30,8 @@
 		<java.version>1.8</java.version>
 
 		<activiti.version>5.22.0</activiti.version>
+
+		<commons.beanutils.version>1.9.3</commons.beanutils.version>
 	</properties>
 
 	<dependencyManagement>
@@ -52,6 +53,33 @@
 				<groupId>org.activiti</groupId>
 				<artifactId>activiti-spring-boot-starter-jpa</artifactId>
 				<version>${activiti.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.activiti</groupId>
+				<artifactId>activiti-spring-boot-starter-rest-api</artifactId>
+				<version>${activiti.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.activiti</groupId>
+				<artifactId>activiti-spring-boot-starter-actuator</artifactId>
+				<version>${activiti.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.activiti</groupId>
+				<artifactId>activiti-json-converter</artifactId>
+				<version>${activiti.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-beanutils</groupId>
+				<artifactId>commons-beanutils</artifactId>
+				<version>${commons.beanutils.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 
 		</dependencies>
